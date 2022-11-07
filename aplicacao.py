@@ -1,39 +1,62 @@
 from flask import Flask, redirect, render_template, request, session, make_response
 
-from CRUD.crud import  criarBases
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-import json
-
+from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin
+# from flask_cors import CORS
 
 app = Flask(__name__)
 criarBases()
+
 
 app.secret_key ="123hudsadasdw"
 
 
 
-  
-# @app.route("/", methods=['GET', 'POST'])
-# def hello_word():
-#   if request.method == "GET":
-    
-#     if request.cookies.get("usuario"):
-#       resp = make_response("Meu site com cookie setado.")
-#     else:
-#       resp = make_response("Meu site sem cookie.")
-#       resp.set_cookie('usuario', 'doni')
+# @app.route('/cadastrarCliente', methods=['POST'])
+# def cadastrarCliente():
+#   cadastrarCliente(request.json)
+#   print('VALOR Aqui {}'.format(request.json))
+#   return jsonify(request.json)
 
-#     cursor = db.cursor()
-#     sql = "SELECT * FROM cliente"
-#     cursor.execute(sql)
-#     results = cursor.fetchall()
-#     print(results)  
-#     print("CONECTADO!")
-#     return render_template("index.html",content=results)
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#   resu = verificaLogin(request.json)
+#   print(resu)
+#   # with open('log.txt', 'w') as outfile:
+#   #   json.dump(resu, outfile)
+#   # json.dump(resu, 'log')
+#   return  resu if resu != None else "ERRO"
+
+# @app.route('/cadastrarUsuario', methods=['POST'])
+# def cadastraUsuario():
+  
+#   cadastraUsuario(request.json)
+#   return 'sucesso'
+
+
+
+  
+@app.route("/", methods=['GET', 'POST'])
+def INICIO():
+  if request.method == "GET":
+    return render_template("telaLogin.html",content=['nome','endereco'])
+  else:
+    return request.form['nome','endereco']  
     
-#   else:
-#     return "O que veio do meu form: "+request.form['conteudo']  
+    # if request.cookies.get("usuario"):
+    #   resp = make_response("Meu site com cookie setado.")
+    # else:
+    #   resp = make_response("Meu site sem cookie.")
+    #   resp.set_cookie('usuario', 'doni')
+
+    # cursor = meuBanco.cursor()
+    # sql = "SELECT * FROM cliente"
+    # cursor.execute(sql)
+    # results = cursor.fetchall()
+    # print(results)  
+    # print("CONECTADO!")
+    
+  # else:
+  #   return "O que veio do meu form: "+request.form['conteudo']  
 
 
 # @app.route("/")
@@ -43,23 +66,23 @@ app.secret_key ="123hudsadasdw"
     
 # @app.route("/deletar", methods=['GET', 'POST'])
 # def deletar():
-#   cursor = db.cursor()
+#   cursor = meuBanco.cursor()
 #   sql = "DELETE FROM cliente WHERE id = %s"
 #   cursor.execute(sql,(request.args.get('id'),))
-#   db.commit()
+#   meuBanco.commit()
 #   return redirect("/")
 
 
-# # @app.route("/", methods=['GET', 'POST'])
-# # def index():
-# #   cursor = db.cursor()
-# #   sql = "SELECT * FROM cliente"
-# #   cursor.execute(sql)
+# @app.route("/", methods=['GET', 'POST'])
+# def index():
+#   cursor = meuBanco.cursor()
+#   sql = "SELECT * FROM cliente"
+#   cursor.execute(sql)
   
-# #   results = cursor.fetchall()
-# #   print(results)  
-# #   print("CONECTADO!")
-# #   return render_template("index.html",content=results)
+#   results = cursor.fetchall()
+#   print(results)  
+#   print("CONECTADO!")
+#   return render_template("index.html",content=results)
 
 # @app.route("/atualizar", methods=['GET', 'POST'])
 # def atualizar_cliente():
@@ -67,28 +90,28 @@ app.secret_key ="123hudsadasdw"
 #       id = request.form.get('id')
 #       nome = request.form.get('nome')
 #       endereço = request.form.get('endereço')
-#       cursor = db.cursor()
+#       cursor = meuBanco.cursor()
 #       sql = "UPDATE  cliente SET nome = %s,endereço = %s WHERE id = %s"
 
 
 #       cursor.execute(sql,(nome, endereço, id))
-#       db.commit()
+#       meuBanco.commit()
 
 
 #       # print(id)
 
-#       cursor = db.cursor()
+#       cursor = meuBanco.cursor()
 #       sql = "SELECT * FROM cliente"
 
 #       cursor.execute(sql)
-#       # db.commit()
+#       # meuBanco.commit()
 #       results = cursor.fetchall()
 #       print(results)  
 #       print("CONECTADO!")
 #       return render_template("index.html",content=results)
 
 #   else:
-#       cursor = db.cursor()
+#       cursor = meu_banco.cursor()
 #       sql = "SELECT * FROM cliente"
 #       cursor.execute(sql)
       

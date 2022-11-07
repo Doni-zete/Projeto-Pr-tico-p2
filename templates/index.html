@@ -13,7 +13,7 @@
 <body>
   
 
-  {% for cliente in content %}
+  <!-- {% for cliente in content %} -->
   <div class="clientes">
   <form action=" " method="post">
     <input type="text" name="nome"  placeholder="Novo nome"/>
@@ -29,7 +29,7 @@
         <a href="/deletar?id={{cliente[0]}}">Deletar</a>
     <hr>
   </div>
-  {% endfor %}
+  <!-- {% endfor %} -->
   <script src="{{ url_for('static', filename = 'scripts.js') }}"></script>
 </body>
 

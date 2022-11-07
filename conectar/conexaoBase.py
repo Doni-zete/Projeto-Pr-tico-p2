@@ -3,7 +3,7 @@ import mysql.connector
 # 
 def conectaDB():
   try:
-    meu_banco = mysql.connector.connect(
+    meuBanco = mysql.connector.connect(
       host="localhost",
       user="root",
       port ="3307",
@@ -14,6 +14,6 @@ def conectaDB():
   except Exception as erro:
     print(erro)
 
-  return meu_banco
+  return meuBanco
 
 

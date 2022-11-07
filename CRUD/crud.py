@@ -1,9 +1,9 @@
 from conectar.conexaoBase import conectaDB
 
-meu_banco = conectaDB()
-mycursor = meu_banco.cursor()
+meuBanco = conectaDB()
+mycursor = meuBanco.cursor()
 
-print(meu_banco)
+print(meuBanco)
 
 
 def criarBases():
@@ -47,6 +47,37 @@ def tabela_usuario():
   except:
     print("Tabela já criada.")
 
-
 def terminaConexao():
-  meu_banco.commit()    
+  meuBanco.commit()    
+
+# Tabelas criadas
+
+
+try:
+  def cadastrarCliente(valores):
+
+    sql = "INSERT INTO `trabalhoP2_db`.`tbl_cliente` (`nome`, `sobrenome`, `endereco`, `telefone`, `cpf`, `email`, `senha`) VALUES(%s, %s, %s, %s, %s, %s, %s)"
+    vlr = (valores['nome'], valores['sobrenome'], valores['endereco'], valores['telefone'], valores['cpf'], valores['email'], valores['senha'])
+    print("clienteNovo: {}".format(vlr))
+
+    mycursor.execute(sql, vlr)
+    terminaConexao()
+
+    print("Dados criados com sucesso")
+except:
+  print('Dados não inseridos')
+
+
+
+try:
+  def verificaLogin(valores):
+    sql = "SELECT * from `trabalhoP2_db`.`tbl_usuario` where email=%s and senha=%s"
+    vlr = (valores['email'], valores['senha'])
+    mycursor.execute(sql, vlr)
+    # print("Valores da base {}".format(mycursor.fetchone()))
+    # resu = mycursor.fetchone()
+    print(mycursor.fetchone())
+    terminaConexao()
+    return 'sucesso'
+except:
+  print('Dados não inseridos')

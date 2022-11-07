@@ -12,26 +12,26 @@
 <body>
   
 
-  {% for cliente in content %}
-  <div class="tela-login">
+  <!-- {% for cliente in content %} -->
+  <!-- <div class="tela-login"> -->
   <form action=" " method="post">
-    <input type="text" name="nome"  placeholder="Novo nome"/>
-    <input type="text" name="endereço" placeholder="Novo Endereço..."/>
-    <input type="hidden" name="id" value="{{cliente[0]}}"/>
-    <input type="submit" name="acao" value="Atualizar" />
+    <input type="text" name="nome" />
+    <input type="text" name="endereco"/>
+    <!-- <input type="hidden" name="id" value="{{cliente[0]}}"/> -->
+    <input type="submit" name="acao" value="Enviar" />
   </form>
 
 
 
   
     
-        <p>Id: {{ cliente[0] }}</p>
+        <!-- <p>Id: {{ cliente[0] }}</p>
         <p>Nome: {{ cliente[1] }}</p>
         <p>Endereço: {{ cliente[2] }}</p>
-        <a href="/deletar?id={{cliente[0]}}">Deletar</a>
-    <hr> 
-  </div>
-  {% endfor %}
+        <a href="/deletar?id={{cliente[0]}}">Deletar</a> -->
+    <!-- <hr> 
+  </div> -->
+  <!-- {% endfor %} -->
   <script src="{{ url_for('static', filename = 'scripts.js') }}"></script>
 </body>
 </html>
