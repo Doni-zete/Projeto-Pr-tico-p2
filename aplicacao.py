@@ -1,46 +1,40 @@
-from flask import Flask, redirect, render_template, request, session, make_response
-
-from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin
+from flask import Flask, redirect, render_template, Blueprint, request, session, make_response
+# from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin
 # from flask_cors import CORS
-
+from moedas.moedas import moedas_blueprint
+from clientes.clientes import clientes_blueprint
 app = Flask(__name__)
-criarBases()
+# criarBases()
+
+app.register_blueprint(moedas_blueprint)
+app.register_blueprint(clientes_blueprint)
 
 
 app.secret_key ="123hudsadasdw"
 
 
+# @app.route('/clientes')
+# def listar_clientes():
+#   return render_template('listar_clientes.html')
 
-# @app.route('/cadastrarCliente', methods=['POST'])
-# def cadastrarCliente():
-#   cadastrarCliente(request.json)
-#   print('VALOR Aqui {}'.format(request.json))
-#   return jsonify(request.json)
+# @app.route('/moedas/<id>')
+# def criar_client(id):
+#   return render_template('criar_clientes.html')
 
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#   resu = verificaLogin(request.json)
-#   print(resu)
-#   # with open('log.txt', 'w') as outfile:
-#   #   json.dump(resu, outfile)
-#   # json.dump(resu, 'log')
-#   return  resu if resu != None else "ERRO"
 
-# @app.route('/cadastrarUsuario', methods=['POST'])
-# def cadastraUsuario():
-  
-#   cadastraUsuario(request.json)
-#   return 'sucesso'
+
+
+
 
 
 
   
-@app.route("/", methods=['GET', 'POST'])
-def INICIO():
-  if request.method == "GET":
-    return render_template("telaLogin.html",content=['nome','endereco'])
-  else:
-    return request.form['nome','endereco']  
+# @app.route("/", methods=['GET', 'POST'])
+# def INICIO():
+#   if request.method == "GET":
+#     return render_template("telaLogin.html",content=['username'])
+#   else:
+#     return request.form['username']  
     
     # if request.cookies.get("usuario"):
     #   resp = make_response("Meu site com cookie setado.")

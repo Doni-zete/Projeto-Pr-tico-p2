@@ -6,6 +6,7 @@ mycursor = meuBanco.cursor()
 print(meuBanco)
 
 
+# ========================Criar database===============================
 def criarBases():
   try:
       mycursor.execute("create DATABASE trabalhoP2_db")
@@ -17,7 +18,7 @@ def criarBases():
   except:
     print("Database já existe!")
 
-
+# ========================Criar Tabelas ===============================
 def tabela_cliente():
   try:
     mycursor.execute(
@@ -50,7 +51,7 @@ def tabela_usuario():
 def terminaConexao():
   meuBanco.commit()    
 
-# Tabelas criadas
+# ========================Criar tabelas de manipulação=============================
 
 
 try:
@@ -74,8 +75,6 @@ try:
     sql = "SELECT * from `trabalhoP2_db`.`tbl_usuario` where email=%s and senha=%s"
     vlr = (valores['email'], valores['senha'])
     mycursor.execute(sql, vlr)
-    # print("Valores da base {}".format(mycursor.fetchone()))
-    # resu = mycursor.fetchone()
     print(mycursor.fetchone())
     terminaConexao()
     return 'sucesso'
