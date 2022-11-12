@@ -1,7 +1,22 @@
-.tela-login{
-  background-color: purple;
+
+
+corpo{
+    width: 280px;
+    height:100px;
 }
 
-/* .clientes{
-  background-color: purple;
-} */
+h1{
+font-family: 'Amatic SC', cursive;
+text-align:center;
+
+}
+body div {
+    display: flex;
+    width: 280px;
+    height:100px;
+    margin: 0 auto;
+    border: 2px dashed black;
+    background-color: ghostwhite;
+    border: 2px solid;
+
+}

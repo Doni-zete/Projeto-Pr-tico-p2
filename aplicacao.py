@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, Blueprint, request, session, make_response
+from flask import Flask, Blueprint, request, session, make_response,render_template
 # from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin
 # from flask_cors import CORS
 from moedas.moedas import moedas_blueprint
@@ -11,6 +11,15 @@ app.register_blueprint(clientes_blueprint)
 
 
 app.secret_key ="123hudsadasdw"
+
+@app.route("/")
+def Inicio():
+  return render_template('index_cadastro.html')
+
+@app.route("/index_login")
+def login():
+  return render_template('index_login.html')
+
 
 
 # @app.route('/clientes')

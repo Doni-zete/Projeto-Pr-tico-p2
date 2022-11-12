@@ -7,21 +7,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" />
 
-  <title>Document</title>
+  <title>Tela de login</title>
 </head>
 
 <body>
   
+  <h1>Login</h1>
+<div class="corpo">
+  <form class="centra_form" action="" method="post">
+    <label for="">Nome:</label><br>
+    <input type="text" name="nome" placeholder="Insira seu nome:"/>
+    <br>
+    <br>
+    <label for="">Senha:</label><br>
+    <input type="text" name="senha" placeholder="Digite sua senha:"/>
+    <input type="submit" name="acao" value="Enviar"/>
+
+  </form>
+</div>
 
   <!-- {% for cliente in content %} -->
-  <div class="clientes">
+  <!-- <div class="clientes">
   <form action=" " method="post">
     <input type="text" name="nome"  placeholder="Novo nome"/>
     <input type="text" name="endereço" placeholder="Novo Endereço..."/>
     <input type="hidden" name="id" value="{{cliente[0]}}"/>
     <input type="submit" name="acao" value="Atualizar" />
-  </form>
-
+  
 
         <p>Id: {{ cliente[0] }}</p>
         <p>Nome: {{ cliente[1] }}</p>
@@ -29,8 +41,8 @@
         <a href="/deletar?id={{cliente[0]}}">Deletar</a>
     <hr>
   </div>
-  <!-- {% endfor %} -->
-  <script src="{{ url_for('static', filename = 'scripts.js') }}"></script>
+  {% endfor %}
+  <script src="{{ url_for('static', filename = 'scripts.js') }}"></script> -->
 </body>
 
 </html>
