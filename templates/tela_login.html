@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h3 class="text-muted">Entrar na conta</h3>
+    </div>
+
+
+  <div class="flex-container">
+    
+      <h1>Entrar</h1>
+
+      <form class="formulario">
+        <label for="inputNome" class="sr-only">Nome</label>
+        <input type="name" name="inputNome" id="inputNome" class="form-control" placeholder="Digite seu nome" required
+          autofocus> <br>
+
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Digite seu e-mail"
+          required autofocus>
+
+        <br>
+        <label for="inputSenha" class="sr-only">Senha</label>
+        <input type="senha" name="inputSenha" id="inputSenha" placeholder="Digite sua senha" required>
+        <br>
+
+        <p><a class="botao" href="clientes\templates\listar_clientes.html">Entrar</a></p>
+        <!-- <button id="btnentrar" clas="botao" type="button" href="listar_clientes.hmtl">Entrar</button> -->
+        <!-- <p><a class="botao" href="tela_cadatro">Criar nova conta</a></p> -->
+      </form>
+      
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+
+</html>

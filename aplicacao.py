@@ -14,11 +14,20 @@ app.secret_key ="123hudsadasdw"
 
 @app.route("/")
 def Inicio():
-  return render_template('index_cadastro.html')
+  return render_template('tela_incial.html')
 
-@app.route("/index_login")
-def login():
-  return render_template('index_login.html')
+@app.route("/tela_cadatro")
+def Cadastrar():
+  return render_template('tela_cadatro.html')
+
+@app.route("/tela_login")
+def Login():
+  return render_template('tela_login.html')
+
+@app.route("/clientes/templates/listar_clientes.html")
+def index():
+  return render_template('listar_clientes.html')
+
 
 
 
