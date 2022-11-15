@@ -10,6 +10,7 @@ app.register_blueprint(moedas_blueprint)
 app.register_blueprint(clientes_blueprint)
 
 
+
 app.secret_key ="123hudsadasdw"
 
 @app.route("/")
@@ -25,11 +26,17 @@ def Login():
   return render_template('tela_login.html')
 
 @app.route("/clientes/templates/listar_clientes.html")
-def index():
+def istar_clientes():
   return render_template('listar_clientes.html')
 
 
+@app.route("/clientes/<nome_cliente>")  
+def clientes(nome_cliente):
+  return render_template("index.html",nome_cliente=nome_cliente)
 
+# ativando o debugar 
+# if __name__ == "__name__":
+app.run(debug=True)
 
 # @app.route('/clientes')
 # def listar_clientes():

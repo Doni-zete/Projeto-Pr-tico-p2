@@ -22,7 +22,7 @@ def criarBases():
 def tabela_cliente():
   try:
     mycursor.execute(
-      "CREATE TABLE `trabalhoP2_db`.`tabela_cliente` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `sobrenome` VARCHAR(60) NOT NULL , `endereco` VARCHAR(100) NOT NULL , `telefone` VARCHAR(15) NOT NULL , `cpf` VARCHAR(11) NOT NULL, `email` VARCHAR(60) NOT NULL, `senha` VARCHAR(60) NOT NULL, PRIMARY KEY (`id`)) "
+      "CREATE TABLE `trabalhoP2_db`.`tabela_cliente` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL ,  `email` VARCHAR(60) NOT NULL, `senha` VARCHAR(60) NOT NULL, PRIMARY KEY (`id`)) "
       )
     print('Tabela criada com sucesso!')
   except:
@@ -57,8 +57,8 @@ def terminaConexao():
 try:
   def cadastrarCliente(valores):
 
-    sql = "INSERT INTO `trabalhoP2_db`.`tbl_cliente` (`nome`, `sobrenome`, `endereco`, `telefone`, `cpf`, `email`, `senha`) VALUES(%s, %s, %s, %s, %s, %s, %s)"
-    vlr = (valores['nome'], valores['sobrenome'], valores['endereco'], valores['telefone'], valores['cpf'], valores['email'], valores['senha'])
+    sql = "INSERT INTO `trabalhoP2_db`.`tbl_cliente` (`nome`, `email`, `senha`) VALUES(%s, %s, %s)"
+    vlr = (valores['nome'], valores['email'], valores['senha'])
     print("clienteNovo: {}".format(vlr))
 
     mycursor.execute(sql, vlr)
