@@ -80,3 +80,27 @@ try:
     return 'sucesso'
 except:
   print('Dados não inseridos')
+
+
+
+try:
+  def listarClientes():
+    
+    sql = "SELECT * from `trabalhoP2_db`.`tbl_cliente` where 1=1"
+    # print(sql)
+    mycursor.execute(sql)
+    resu = mycursor.fetchall()
+    terminaConexao()
+    resuThat = []
+    field_names = [i[0] for i in mycursor.description]
+    for l in resu:
+      temp = {}
+      for index, j in enumerate(l):
+        temp[field_names[index]] = j
+      resuThat.append(temp)
+    
+    print(resuThat)
+
+    return resuThat
+except:
+  print('Dados não inseridos')  

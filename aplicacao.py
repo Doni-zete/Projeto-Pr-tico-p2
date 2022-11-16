@@ -1,10 +1,10 @@
-from flask import Flask, Blueprint, request, session, make_response,render_template
-# from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin
-# from flask_cors import CORS
+from flask import Flask, Blueprint, request, session, make_response,render_template,jsonify
+from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin
+from flask_cors import CORS
 from moedas.moedas import moedas_blueprint
 from clientes.clientes import clientes_blueprint
 app = Flask(__name__)
-# criarBases()
+criarBases()
 
 app.register_blueprint(moedas_blueprint)
 app.register_blueprint(clientes_blueprint)
@@ -17,13 +17,15 @@ app.secret_key ="123hudsadasdw"
 def Inicio():
   return render_template('tela_incial.html')
 
+@app.route("/tela_login")
+def Login():
+  return render_template('tela_login.html')
+
 @app.route("/tela_cadatro")
 def Cadastrar():
   return render_template('tela_cadatro.html')
 
-@app.route("/tela_login")
-def Login():
-  return render_template('tela_login.html')
+
 
 @app.route("/clientes/templates/listar_clientes.html")
 def istar_clientes():
@@ -33,6 +35,14 @@ def istar_clientes():
 @app.route("/clientes/<nome_cliente>")  
 def clientes(nome_cliente):
   return render_template("index.html",nome_cliente=nome_cliente)
+
+
+
+@app.route('/cadastrarCliente', methods=['POST'])
+def cadastraCliente():
+  cadastrarCliente(request.json)
+  print('VALOR Aqui {}'.format(request.json))
+  return jsonify(request.json)  
 
 # ativando o debugar 
 # if __name__ == "__name__":
