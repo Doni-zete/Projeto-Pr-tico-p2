@@ -22,21 +22,21 @@
       <div class="cadastro">
         <h1>Cadastre-se</h1>
 
-        <form class="formulario">
+        <form class="formulario" action=" " method="post">
           <label for="inputNome" class="sr-only">Nome</label>
-          <input type="name" name="inputNome" id="inputNome" class="form-control" placeholder="Digite seu nome" required
+          <input type="name" name="nome" id="inputNome" class="form-control" placeholder="Digite seu nome" required
             autofocus> <br>
   
           <label for="inputEmail" class="sr-only">Email</label>
-          <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Digite seu e-mail"
+          <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Digite seu e-mail"
             required autofocus>
   
           <br>
           <label for="inputSenha" class="sr-only">Senha</label>
-          <input type="senha" name="inputSenha" id="inputSenha" placeholder="Digite sua senha" required>
+          <input type="text" name="senha" id="inputSenha" placeholder="Digite sua senha" required>
           <br>
-  
-          <button id="btnentrar" clas="botao" type="button">Cadastrar</button>
+          <input type="submit" name="acao" value="Enviar" />
+          <!-- <button id="btnentrar" clas="botao" type="button">Cadastrar</button> -->
         </form>
         
       </div>

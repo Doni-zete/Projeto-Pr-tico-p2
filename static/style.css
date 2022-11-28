@@ -57,6 +57,7 @@
 h1 {
     font-size: 44px;
     color: #003366;
+    text-align: center;
 
 }
 h3 {
@@ -80,3 +81,24 @@ h3 {
 .rodape {
     text-align: center;
 }
+.center-table {
+    display: flex;
+    justify-content: center;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    width: 50%;
+    margin-bottom: 2.5em;
+    text-align: center;
+    align-self: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    align-items: center;
+  }
+
+  th, td {
+    padding: 15px 6px;
+  }

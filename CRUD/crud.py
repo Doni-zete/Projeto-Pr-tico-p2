@@ -22,7 +22,7 @@ def criarBases():
 def tabela_cliente():
   try:
     mycursor.execute(
-      "CREATE TABLE `trabalhoP2_db`.`tabela_cliente` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL ,  `email` VARCHAR(60) NOT NULL, `senha` VARCHAR(60) NOT NULL, PRIMARY KEY (`id`)) "
+      "CREATE TABLE `trabalhoP2_db`.`tabela_cliente` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `senha` VARCHAR(60) NOT NULL,  `email` VARCHAR(60) NOT NULL,PRIMARY KEY (`id`)) "
       )
     print('Tabela criada com sucesso!')
   except:
@@ -32,7 +32,7 @@ def tabela_cliente():
 def tabela_moeda():
   try:
     mycursor.execute(
-      "CREATE TABLE `trabalhoP2_db`.`tabela_moeda` ( `id` INT NOT NULL AUTO_INCREMENT , `moeda` VARCHAR(20) NOT NULL , `simbolo` VARCHAR(10) NOT NULL, `valor` VARCHAR(15) NOT NULL , PRIMARY KEY (`id`)) "
+      "CREATE TABLE `trabalhoP2_db`.`tabela_moeda` ( `id` INT NOT NULL AUTO_INCREMENT , `moeda` VARCHAR(20) NOT NULL , `simbolo` VARCHAR(10) NOT NULL, `valor` VARCHAR(15) NOT NULL , `quantidade`  VARCHAR(15) NOT NULL, PRIMARY KEY (`id`)) "
       )
     print('Tabela criada com sucesso!')
   except:
@@ -42,7 +42,7 @@ def tabela_moeda():
 def tabela_usuario():
   try:
     mycursor.execute(
-      "CREATE TABLE `trabalhoP2_db`.`tbl_usuario` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `email` VARCHAR(60) NOT NULL , `senha` VARCHAR(60) NOT NULL , PRIMARY KEY (`id`))"
+      "CREATE TABLE `trabalhoP2_db`.`tabela_usuario` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `email` VARCHAR(60) NOT NULL , `senha` VARCHAR(60) NOT NULL , PRIMARY KEY (`id`))"
       )
     print('Tabela criada com sucesso!')
   except:

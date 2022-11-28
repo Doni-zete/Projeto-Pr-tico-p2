@@ -1,6 +1,6 @@
-from flask import Flask, Blueprint, request, session, make_response,render_template,jsonify
-from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin
-from flask_cors import CORS
+from flask import Flask, Blueprint, request, session, make_response,render_template,jsonify,redirect
+from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin,meuBanco
+# from flask_cors import CORS
 from moedas.moedas import moedas_blueprint
 from clientes.clientes import clientes_blueprint
 app = Flask(__name__)
@@ -17,36 +17,99 @@ app.secret_key ="123hudsadasdw"
 def Inicio():
   return render_template('tela_incial.html')
 
+
+
+
+@app.route('/tela_cadatro', methods=['GET', 'POST'])
+def index():
+    if request.method == "POST":
+        informacao = request.form
+        nome = informacao['nome']
+        email = informacao['email']
+        senha = informacao['senha']
+
+        cur = meuBanco.cursor()
+        cur.execute("INSERT INTO trabalhoP2_db.tabela_cliente(nome,email,senha) VALUES (%s, %s,%s)", (nome,email,senha))
+        meuBanco.commit()
+        cur.close()
+        return redirect('/')
+    return render_template('tela_cadatro.html')
+
+
 @app.route("/tela_login")
 def Login():
   return render_template('tela_login.html')
 
-@app.route("/tela_cadatro")
-def Cadastrar():
-  return render_template('tela_cadatro.html')
+
+# @app.route("/tela_cadatro")
+# def Cadastrar():
+#   return render_template('tela_cadatro.html')
 
 
 
-@app.route("/clientes/templates/listar_clientes.html")
-def istar_clientes():
-  return render_template('listar_clientes.html')
+@app.route("/tela_menu")
+def menu_aplicacao():
+  return render_template('tela_menu.html')
 
 
-@app.route("/clientes/<nome_cliente>")  
-def clientes(nome_cliente):
-  return render_template("index.html",nome_cliente=nome_cliente)
+# @app.route("/tela_listar_clientes")  
+# def Listar_clientes():
+#   return render_template("tela_listar_clientes.html")
 
 
 
-@app.route('/cadastrarCliente', methods=['POST'])
-def cadastraCliente():
-  cadastrarCliente(request.json)
-  print('VALOR Aqui {}'.format(request.json))
-  return jsonify(request.json)  
+@app.route('/tela_listar_clientes', methods=['GET','POST'])
+def select():
+    cursor = meuBanco.cursor()    
+    sql = "SELECT *  FROM `trabalhoP2_db`.`tabela_cliente`"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    print(results)
+    return render_template("tela_listar_clientes.html", content=results)
+     
+# @app.route("/", methods=['GET', 'POST'])
+# def hello_word():
+#   if request.method == "GET":
+
+#     if request.cookies.get("usuario"):
+#       resp = make_response("Meu site com cookie setado.")
+#     else:
+#       resp = make_response("Meu site sem cookie.")
+#       resp.set_cookie('usuario', 'doni')
+
+#     cursor = meuBanco.cursor()
+#     sql = "SELECT * FROM `trabalhoP2_db`.`tabela_cliente`"
+#     cursor.execute(sql)
+#     results = cursor.fetchall()
+#     print(results)  
+#     print("CONECTADO!")
+#     return render_template("index.html",content=results)
+
+#   else:
+#     return "O que veio do meu form: "+request.form['conteudo']  
+
+
+
+
+
+
+
+@app.route("/tela_inserir_cliente")  
+def Inserir():
+  return render_template("tela_inserir_cliente.html")  
+
+# @app.route("/tela_listar_clientes")  
+# def clientes(nome_cliente):
+#   return render_template("tela_listar_clientes.html",nome_cliente=nome_cliente)
+
+
+
+
+
 
 # ativando o debugar 
 # if __name__ == "__name__":
-app.run(debug=True)
+# app.run(debug=True)
 
 # @app.route('/clientes')
 # def listar_clientes():
@@ -157,3 +220,5 @@ app.run(debug=True)
 # @app.route("/noticia/<noticia_slug>")
 # def noticia(noticia_slug):
 #   return "Noticia: "+noticia_slug
+
+app.run(debug= True)
