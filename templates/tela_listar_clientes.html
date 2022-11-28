@@ -11,12 +11,16 @@
 
 <body>
 
+  <h1>Listagem de clientes</h1>
+
   <div class="center-table">
     <table>
-      <th>id</th>
-      <th>nome</th>
-      <th>email</th>
-      <th>senha</th>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Senha</th>
+      <th>Apagar</th>
+      <th>Atualizar dados</th>
       {%for cliente in content%}
       <tr>
         <td>
@@ -30,6 +34,12 @@
         </td>
         <td>
           {{ cliente[3] }}
+        </td>
+        <td>
+          <a class="botao-deletar" href="/deletar?id={{cliente[0]}}">Deletar</a>
+        </td>
+        <td>
+          <a  class="botao-atualizar" href="tela_atualizar_clientes">Atualizar</a>
         </td>
       </tr>
       {%endfor%}

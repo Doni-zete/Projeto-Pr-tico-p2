@@ -21,7 +21,7 @@ def Inicio():
 
 
 @app.route('/tela_cadatro', methods=['GET', 'POST'])
-def index():
+def cadastro():
     if request.method == "POST":
         informacao = request.form
         nome = informacao['nome']
@@ -66,6 +66,18 @@ def select():
     results = cursor.fetchall()
     print(results)
     return render_template("tela_listar_clientes.html", content=results)
+
+
+
+@app.route("/deletar", methods=['GET', 'POST'])
+def deletar():
+  cursor = meuBanco.cursor()
+  sql = "DELETE FROM trabalhoP2_db.tabela_cliente WHERE id = %s"
+  cursor.execute(sql,(request.args.get('id'),))
+  meuBanco.commit()
+  return redirect('/tela_listar_clientes')
+ 
+
      
 # @app.route("/", methods=['GET', 'POST'])
 # def hello_word():
@@ -156,13 +168,6 @@ def Inserir():
 #   return render_template("telaLogin.html")
 
     
-# @app.route("/deletar", methods=['GET', 'POST'])
-# def deletar():
-#   cursor = meuBanco.cursor()
-#   sql = "DELETE FROM cliente WHERE id = %s"
-#   cursor.execute(sql,(request.args.get('id'),))
-#   meuBanco.commit()
-#   return redirect("/")
 
 
 # @app.route("/", methods=['GET', 'POST'])
@@ -176,41 +181,41 @@ def Inserir():
 #   print("CONECTADO!")
 #   return render_template("index.html",content=results)
 
-# @app.route("/atualizar", methods=['GET', 'POST'])
-# def atualizar_cliente():
-#   if request.method == 'POST':
-#       id = request.form.get('id')
-#       nome = request.form.get('nome')
-#       endereço = request.form.get('endereço')
-#       cursor = meuBanco.cursor()
-#       sql = "UPDATE  cliente SET nome = %s,endereço = %s WHERE id = %s"
+@app.route("/tela_atualizar_clientes", methods=['GET', 'POST'])
+def atualizar_cliente():
+  if request.method == "POST":
+      informacao = request.form
+      nome = informacao['nome']
+      email = informacao['email']
+      senha = informacao['senha']
+
+      cursor = meuBanco.cursor()
+      sql = "UPDATE  trabalhoP2_db.tabela_cliente SET nome = %s, email = %s, senha = %s WHERE id = %s"
+      cursor.execute(sql,(nome, email, senha, id))
+      meuBanco.commit()
 
 
-#       cursor.execute(sql,(nome, endereço, id))
-#       meuBanco.commit()
+      # print(id)
 
+      cursor = meuBanco.cursor()
+      sql = "SELECT * FROM trabalhoP2_db.tabela_cliente"
 
-#       # print(id)
+      cursor.execute(sql)
+      # meuBanco.commit()
+      results = cursor.fetchall()
+      print(results)  
+      print("CONECTADO!")
+      return render_template("tela_listar_clientes",content=results)
 
-#       cursor = meuBanco.cursor()
-#       sql = "SELECT * FROM cliente"
+  else:
+    cursor = meuBanco.cursor()
+    sql = "SELECT * FROM trabalhoP2_db.tabela_cliente"
+    cursor.execute(sql)
 
-#       cursor.execute(sql)
-#       # meuBanco.commit()
-#       results = cursor.fetchall()
-#       print(results)  
-#       print("CONECTADO!")
-#       return render_template("index.html",content=results)
-
-#   else:
-#       cursor = meu_banco.cursor()
-#       sql = "SELECT * FROM cliente"
-#       cursor.execute(sql)
-      
-#       results = cursor.fetchall()
-#       print(results)  
-#       print("CONECTADO!")
-#       return render_template("index.html",content=results)
+    results = cursor.fetchall()
+    print(results)  
+    print("CONECTADO!")
+    return render_template("tela_atualizar_clientes.html",content=results)
 
  
 
