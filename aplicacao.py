@@ -1,13 +1,9 @@
 from flask import Flask, Blueprint, request, session, make_response,render_template,jsonify,redirect
 from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin,meuBanco
 # from flask_cors import CORS
-from moedas.moedas import moedas_blueprint
-from clientes.clientes import clientes_blueprint
 app = Flask(__name__)
 criarBases()
 
-app.register_blueprint(moedas_blueprint)
-app.register_blueprint(clientes_blueprint)
 
 
 
@@ -185,6 +181,7 @@ def Inserir():
 def atualizar_cliente():
   if request.method == "POST":
       informacao = request.form
+      id = informacao['id']
       nome = informacao['nome']
       email = informacao['email']
       senha = informacao['senha']
@@ -194,23 +191,23 @@ def atualizar_cliente():
       cursor.execute(sql,(nome, email, senha, id))
       meuBanco.commit()
 
-
-      # print(id)
-
       cursor = meuBanco.cursor()
-      sql = "SELECT * FROM trabalhoP2_db.tabela_cliente"
+      sql = "SELECT * FROM trabalhoP2_db.tabela_cliente WHERE id = %s "
+      cursor.execute(sql,(request.args.get('id'),))
 
-      cursor.execute(sql)
+      
+      # cursor.execute(sql)
       # meuBanco.commit()
       results = cursor.fetchall()
       print(results)  
       print("CONECTADO!")
-      return render_template("tela_listar_clientes",content=results)
+      return render_template("tela_atualizar_clientes.html",content=results)
 
   else:
     cursor = meuBanco.cursor()
-    sql = "SELECT * FROM trabalhoP2_db.tabela_cliente"
-    cursor.execute(sql)
+    sql = "SELECT * FROM trabalhoP2_db.tabela_cliente WHERE id = %s"
+    # cursor.execute(sql)
+    cursor.execute(sql,(request.args.get('id'),))
 
     results = cursor.fetchall()
     print(results)  
