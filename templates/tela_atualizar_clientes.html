@@ -11,35 +11,42 @@
 </head>
 
 <body>
+  <h1>Atualizar cliente</h1>
 
 
-  
   {% for cliente in content %}
-  <div class="center-table">
-  <form action=" " method="post">
-    <input type="text" name="nome"  placeholder="Digite seu nome"/>
-    <input type="text" name="senha" placeholder="Digite seu Email..."/>
-    <input type="text" name="email" placeholder="Digite sua senha..."/>
-    <input type="submit" name="acao" value="Atualizar" />
-    <input type="hidden" name="id" value="{{cliente[0]}}"/>
-  </form>
-</div>
+ 
+  <section class="container-login-criar wrap">
+      <div class="item">Id:{{ cliente[0] }}</div>
+      <div class="item">Nome:{{ cliente[1] }}</div>
+      <div class="item">Senha:{{ cliente[2] }}</div>
+      <div class="item">Email:{{ cliente[3] }}</div>
+      
+
+      
+    </section>
+
 
     <div class="center-table">
-        <div>Id:</div> <div>{{ cliente[0] }} </div>
-      <div>Nome:</div> {{ cliente[1] }}
-    <div>Email:</div> {{ cliente[2] }}
-  <div><p>Senha:</div> {{ cliente[3] }}
+      <form action=" " method="post">
+        <input type="text" name="nome" placeholder="Digite seu nome" />
+        <input type="text" name="senha" placeholder="Digite sua senha..." />
+        <input type="text" name="email" placeholder="Digite seu Email..." />
+        <br>
+        <input type="submit" class="botao-atualizar" name="acao" value="Atualizar" />
+      
+        <input type="button" class="botao-deletar" value="Voltar" onclick="window.location.href='tela_menu'"> 
 
-        <!-- <a href="/deletar?id={{cliente[0]}}">Deletar</a> -->
-        <!-- <a href="/inserir?id={{cliente[0]}}">Inserir</a> -->
-        <input type="hidden" name="id" value="{{cliente[0]}}"/>
-       
-      </div>  
+
+
+        <input type="hidden" name="id" value="{{cliente[0]}}" />
+      </form>
+    </div>
+
   
 
   {% endfor %}
-</div>
+ 
   <script src="{{ url_for('static', filename = 'scripts.js') }}"></script>
 </body>
 

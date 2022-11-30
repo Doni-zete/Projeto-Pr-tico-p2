@@ -21,8 +21,8 @@ def cadastro():
     if request.method == "POST":
         informacao = request.form
         nome = informacao['nome']
-        email = informacao['email']
         senha = informacao['senha']
+        email = informacao['email']
 
         cur = meuBanco.cursor()
         cur.execute("INSERT INTO trabalhoP2_db.tabela_cliente(nome,email,senha) VALUES (%s, %s,%s)", (nome,email,senha))
@@ -183,12 +183,12 @@ def atualizar_cliente():
       informacao = request.form
       id = informacao['id']
       nome = informacao['nome']
-      email = informacao['email']
       senha = informacao['senha']
+      email = informacao['email']
 
       cursor = meuBanco.cursor()
-      sql = "UPDATE  trabalhoP2_db.tabela_cliente SET nome = %s, email = %s, senha = %s WHERE id = %s"
-      cursor.execute(sql,(nome, email, senha, id))
+      sql = "UPDATE  trabalhoP2_db.tabela_cliente SET nome = %s,senha = %s, email = %s  WHERE id = %s"
+      cursor.execute(sql,(nome,senha, email,  id))
       meuBanco.commit()
 
       cursor = meuBanco.cursor()

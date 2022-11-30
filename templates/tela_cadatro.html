@@ -5,44 +5,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrar</title>
+  <title>Cadastro</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 
 <body>
 
-  <div class="container">
-    <div class="header">
-      <h3 class="text-muted">Criar conta conta</h3>
-    </div>
+  <div class="flex-container">
+    <h3 class="text-muted">Criar conta</h3>
 
+    <form class="formulario" action=" " method="post">
+      <label for="inputNome" class="sr-only">Nome:</label>
+      <input type="name" name="nome" id="inputNome" class="form-control" placeholder="Digite seu nome" required
+        autofocus> 
 
-    <div class="flex-container">
-      <div class="cadastro">
-        <h1>Cadastre-se</h1>
+      <label for="inputSenha" class="sr-only">Senha:</label>
+      <input type="text" name="senha" id="inputSenha" placeholder="Digite sua senha" required>
 
-        <form class="formulario" action=" " method="post">
-          <label for="inputNome" class="sr-only">Nome</label>
-          <input type="name" name="nome" id="inputNome" class="form-control" placeholder="Digite seu nome" required
-            autofocus> <br>
-  
-          <label for="inputEmail" class="sr-only">Email</label>
-          <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Digite seu e-mail"
-            required autofocus>
-  
-          <br>
-          <label for="inputSenha" class="sr-only">Senha</label>
-          <input type="text" name="senha" id="inputSenha" placeholder="Digite sua senha" required>
-          <br>
-          <input type="submit" name="acao" value="Enviar" />
-          <!-- <button id="btnentrar" clas="botao" type="button">Cadastrar</button> -->
-        </form>
-        
-      </div>
-    </div>
+      <br>
+      <label for="inputEmail" class="sr-only">Email:</label>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Digite seu e-mail" required
+        autofocus>
+      <br>
+      <input type="submit" class="botao-atualizar" name="acao" value="Criar" />
+      <!-- <button id="btnentrar" clas="botao" type="button">Cadastrar</button> -->
+    </form>
 
-    
+  </div>
 
 </body>
+
 </html>
