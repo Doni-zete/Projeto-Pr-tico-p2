@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro moeda</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+
+  <div class="flex-container-moeda">
+    <h3 class="text-muted">Adicionar Moeda</h3>
+
+    <form class="formulario" action=" " method="post">
+      <label for="inputNome" class="sr-only">Moeda:</label>
+      <input type="name" name="moeda" id="inputNome" class="form-control" placeholder="Digite seu nome" required
+        autofocus>
+      <br>
+
+
+      <label for="inputSenha" class="sr-only">Simbolo:</label>
+      <input type="text" name="simbolo" id="inputSenha" placeholder="Digite sua senha" required>
+
+      <br>
+      <label for="inputEmail" class="sr-only">Valor:</label>
+      <input type="number" name="valor" id="inputEmail" class="form-control" placeholder="Digite seu e-mail" required
+        autofocus>
+      <br>
+
+      <label for="inputEmail" class="sr-only">Quantidade:</label>
+      <input type="number" name="quantidade" id="inputEmail" class="form-control" placeholder="Digite seu e-mail"
+        required autofocus>
+
+      <br>
+      <input type="submit" class="botao-atualizar" name="acao" value="Criar" />
+      <input type="button" class="botao-deletar" value="Voltar" onclick="window.location.href='tela_menu'">
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>

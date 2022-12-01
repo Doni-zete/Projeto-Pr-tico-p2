@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" />
+
+  <title>Atualizar Moedas</title>
+</head>
+
+<body>
+  <h1>Atualizar Moedas</h1>
+
+
+  {% for moeda in content %}
+ 
+  <section class="container-login-criar wrap">
+      <div class="item">Id:{{ moeda[0] }}</div>
+      <div class="item">Moeda:{{ moeda[1] }}</div>
+      <div class="item">Simbolo:{{ moeda[2] }}</div>
+      <div class="item">Valor:{{ moeda[3] }}</div>
+      <div class="item">Quantidade:{{ moeda[4] }}</div> 
+    </section>
+
+
+    <div class="center-table">
+      <form action=" " method="post">
+        <input type="text" name="moeda" placeholder="Digite nome moeda" />
+        <input type="text" name="simbolo" placeholder="Digite simbolo moeda..." />
+        <input type="text" name="valor" placeholder="Digite valor moeda..." />
+        <input type="text" name="quantidade" placeholder="Digite quantidade de moeda..." />
+        <br>
+        <input type="submit" class="botao-atualizar" name="acaoo" value="Atualizar" />
+      
+        <input type="button" class="botao-deletar" value="Voltar" onclick="window.location.href='tela_listar_moedas'"> 
+
+        <input type="hidden" name="id" value="{{moeda[0]}}" />
+      </form>
+    </div>
+
+  
+
+  {% endfor %}
+ 
+  <script src="{{ url_for('static', filename = 'scripts.js') }}"></script>
+</body>
+
+</html>

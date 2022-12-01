@@ -15,38 +15,35 @@
 
 
   {% for cliente in content %}
- 
+
   <section class="container-login-criar wrap">
-      <div class="item">Id:{{ cliente[0] }}</div>
-      <div class="item">Nome:{{ cliente[1] }}</div>
-      <div class="item">Senha:{{ cliente[2] }}</div>
-      <div class="item">Email:{{ cliente[3] }}</div>
-      
-
-      
-    </section>
+    <div class="item">Id:{{ cliente[0] }}</div>
+    <div class="item">Nome:{{ cliente[1] }}</div>
+    <div class="item">Senha:{{ cliente[2] }}</div>
+    <div class="item">Email:{{ cliente[3] }}</div>
+  </section>
 
 
-    <div class="center-table">
-      <form action=" " method="post">
-        <input type="text" name="nome" placeholder="Digite seu nome" />
-        <input type="text" name="senha" placeholder="Digite sua senha..." />
-        <input type="text" name="email" placeholder="Digite seu Email..." />
-        <br>
-        <input type="submit" class="botao-atualizar" name="acao" value="Atualizar" />
-      
-        <input type="button" class="botao-deletar" value="Voltar" onclick="window.location.href='tela_listar_clientes'"> 
+  <div class="center-table">
+    <form action=" " method="post">
+      <input type="text" name="nome" placeholder="Digite seu nome" />
+      <input type="text" name="senha" placeholder="Digite sua senha..." />
+      <input type="text" name="email" placeholder="Digite seu Email..." />
+      <br>
+      <input type="submit" class="botao-atualizar" name="acao" value="Atualizar" />
+
+      <input type="button" class="botao-deletar" value="Voltar" onclick="window.location.href='tela_listar_clientes'">
 
 
 
-        <input type="hidden" name="id" value="{{cliente[0]}}" />
-      </form>
-    </div>
+      <input type="hidden" name="id" value="{{cliente[0]}}" />
+    </form>
+  </div>
 
-  
+
 
   {% endfor %}
- 
+
   <script src="{{ url_for('static', filename = 'scripts.js') }}"></script>
 </body>
 

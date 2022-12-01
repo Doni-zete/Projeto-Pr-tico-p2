@@ -6,40 +6,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <title>Listagem clientes</title>
+  <title>Atualizar</title>
 </head>
 
 <body>
 
-  <h1>Listagem de clientes</h1>
+  <h1>Atualizar clientes</h1>
 
   <div class="center-table">
     <table>
       <th>Id</th>
-      <th>Nome</th>
-      <th>Senha</th>
-      <th>Email</th>
-      <th>Apagar</th>
+      <th>Moeda</th>
+      <th>Simbolo</th>
+      <th>Valor</th>
+      <th>Quantidade</th>
       <th>Atualizar dados</th>
-      {%for cliente in content%}
+      {%for moeda in content%}
       <tr>
         <td>
-          {{ cliente[0] }}
+          {{ moeda[0] }}
         </td>
         <td>
-          {{ cliente[1] }}
+          {{ moeda[1] }}
         </td>
         <td>
-          {{ cliente[2] }}
+          {{ moeda[2] }}
         </td>
         <td>
-          {{ cliente[3] }}
+          {{ moeda[3] }}
         </td>
         <td>
-          <a class="botao-deletar" href="/deletar_cliente?id={{cliente[0]}}">Deletar</a>
+          {{ moeda[4] }}
         </td>
         <td>
-          <a  class="botao-atualizar" href="/tela_atualizar_clientes?id={{cliente[0]}}">Atualizar</a>
+          <a  class="botao-atualizar" href="/tela_atualizar_moedas?id={{moeda[0]}}">Atualizar</a>
         </td>
       </tr>
       {%endfor%}
