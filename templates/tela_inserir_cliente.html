@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listagem clientes</title>
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
+
 <body>
 
-  <form action=" " method="post">
-    <input type="text" name="nome"  placeholder="Digite seu nome"/>
-    <input type="text" name="email" placeholder="Digite sua senha..."/>
-    <input type="text" name="senha" placeholder="Digite seu Email..."/>
-    <input type="submit" name="acao" value="Enviar" />
-  </form>
-  
+  <div class="flex-container">
+    <h3 class="text-muted">Adicionar cliente</h3>
+
+    <form class="formulario" action=" " method="post">
+      <label for="inputNome" class="sr-only">Nome:</label>
+      <input type="name" name="nome" id="inputNome" class="form-control" placeholder="Digite seu nome" required
+        autofocus> 
+
+      <label for="inputSenha" class="sr-only">Senha:</label>
+      <input type="text" name="senha" id="inputSenha" placeholder="Digite sua senha" required>
+
+      <br>
+      <label for="inputEmail" class="sr-only">Email:</label>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Digite seu e-mail" required
+        autofocus>
+      <br>
+      <input type="submit" class="botao-atualizar" name="acao" value="Criar" />
+      <input type="button" class="botao-deletar" value="Voltar" onclick="window.location.href='tela_menu'">
+    </form>
+
+  </div>
+
 </body>
+
 </html>

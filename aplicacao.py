@@ -14,8 +14,6 @@ def Inicio():
   return render_template('tela_incial.html')
 
 
-
-
 @app.route('/tela_cadatro', methods=['GET', 'POST'])
 def cadastro():
     if request.method == "POST":
@@ -37,25 +35,13 @@ def Login():
   return render_template('tela_login.html')
 
 
-# @app.route("/tela_cadatro")
-# def Cadastrar():
-#   return render_template('tela_cadatro.html')
-
-
-
 @app.route("/tela_menu")
 def menu_aplicacao():
   return render_template('tela_menu.html')
 
 
-# @app.route("/tela_listar_clientes")  
-# def Listar_clientes():
-#   return render_template("tela_listar_clientes.html")
-
-
-
 @app.route('/tela_listar_clientes', methods=['GET','POST'])
-def select():
+def listar_cliente():
     cursor = meuBanco.cursor()    
     sql = "SELECT *  FROM `trabalhoP2_db`.`tabela_cliente`"
     cursor.execute(sql)
@@ -63,6 +49,14 @@ def select():
     print(results)
     return render_template("tela_listar_clientes.html", content=results)
 
+@app.route('/tela_atualizar_clientes_dois', methods=['GET','POST'])
+def atualizar():
+    cursor = meuBanco.cursor()    
+    sql = "SELECT *  FROM `trabalhoP2_db`.`tabela_cliente`"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    print(results)
+    return render_template("tela_atualizar_clientes_dois.html", content=results)
 
 
 @app.route("/deletar", methods=['GET', 'POST'])
@@ -74,108 +68,21 @@ def deletar():
   return redirect('/tela_listar_clientes')
  
 
-     
-# @app.route("/", methods=['GET', 'POST'])
-# def hello_word():
-#   if request.method == "GET":
-
-#     if request.cookies.get("usuario"):
-#       resp = make_response("Meu site com cookie setado.")
-#     else:
-#       resp = make_response("Meu site sem cookie.")
-#       resp.set_cookie('usuario', 'doni')
-
-#     cursor = meuBanco.cursor()
-#     sql = "SELECT * FROM `trabalhoP2_db`.`tabela_cliente`"
-#     cursor.execute(sql)
-#     results = cursor.fetchall()
-#     print(results)  
-#     print("CONECTADO!")
-#     return render_template("index.html",content=results)
-
-#   else:
-#     return "O que veio do meu form: "+request.form['conteudo']  
-
-
-
-
-
-
-
-@app.route("/tela_inserir_cliente")  
+@app.route("/tela_inserir_cliente",methods=['GET', 'POST'])  
 def Inserir():
-  return render_template("tela_inserir_cliente.html")  
+  if request.method == "POST":
+      informacao = request.form
+      nome = informacao['nome']
+      senha = informacao['senha']
+      email = informacao['email']
 
-# @app.route("/tela_listar_clientes")  
-# def clientes(nome_cliente):
-#   return render_template("tela_listar_clientes.html",nome_cliente=nome_cliente)
+      cur = meuBanco.cursor()
+      cur.execute("INSERT INTO trabalhoP2_db.tabela_cliente(nome,email,senha) VALUES (%s, %s,%s)", (nome,email,senha))
+      meuBanco.commit()
+      cur.close()
+      return redirect('/tela_inserir_cliente')
+  return render_template('tela_inserir_cliente.html')
 
-
-
-
-
-
-# ativando o debugar 
-# if __name__ == "__name__":
-# app.run(debug=True)
-
-# @app.route('/clientes')
-# def listar_clientes():
-#   return render_template('listar_clientes.html')
-
-# @app.route('/moedas/<id>')
-# def criar_client(id):
-#   return render_template('criar_clientes.html')
-
-
-
-
-
-
-
-
-  
-# @app.route("/", methods=['GET', 'POST'])
-# def INICIO():
-#   if request.method == "GET":
-#     return render_template("telaLogin.html",content=['username'])
-#   else:
-#     return request.form['username']  
-    
-    # if request.cookies.get("usuario"):
-    #   resp = make_response("Meu site com cookie setado.")
-    # else:
-    #   resp = make_response("Meu site sem cookie.")
-    #   resp.set_cookie('usuario', 'doni')
-
-    # cursor = meuBanco.cursor()
-    # sql = "SELECT * FROM cliente"
-    # cursor.execute(sql)
-    # results = cursor.fetchall()
-    # print(results)  
-    # print("CONECTADO!")
-    
-  # else:
-  #   return "O que veio do meu form: "+request.form['conteudo']  
-
-
-# @app.route("/")
-# def login():
-#   return render_template("telaLogin.html")
-
-    
-
-
-# @app.route("/", methods=['GET', 'POST'])
-# def index():
-#   cursor = meuBanco.cursor()
-#   sql = "SELECT * FROM cliente"
-#   cursor.execute(sql)
-  
-#   results = cursor.fetchall()
-#   print(results)  
-#   print("CONECTADO!")
-#   return render_template("index.html",content=results)
 
 @app.route("/tela_atualizar_clientes", methods=['GET', 'POST'])
 def atualizar_cliente():
@@ -214,13 +121,17 @@ def atualizar_cliente():
     print("CONECTADO!")
     return render_template("tela_atualizar_clientes.html",content=results)
 
+
+
+@app.route('/tela_listar_moedas', methods=['GET','POST'])
+def listar_moedas():
+    cursor = meuBanco.cursor()    
+    sql = "SELECT *  FROM `trabalhoP2_db`.`tabela_cliente`"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    print(results)
+    return render_template("tela_listar_moedas.html", content=results)    
+
  
-
-
-
-
-# @app.route("/noticia/<noticia_slug>")
-# def noticia(noticia_slug):
-#   return "Noticia: "+noticia_slug
 
 app.run(debug= True)

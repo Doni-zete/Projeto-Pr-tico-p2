@@ -13,6 +13,16 @@ body > * {
     font-size: 30px;
 }
 
+.flex-container-voltar {
+    background: #d90606;
+    margin: 7px 453px;
+    border-radius: 13px;
+    line-height: 75px;
+    font-size: 30px;
+    color: #fff;
+    border: none
+}
+
 .formulario{
    
     font-size: 30px;
