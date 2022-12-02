@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>Menu</title>
 </head>
+
 <body>
   <h1>DzFinance</h1>
+  <section>
+    <!-- <table style="width:100%"> -->
+    <div class="center-table">
 
-  <!-- <table style="width:100%"> -->
-<div class="center-table" >
-  
-      
-     <a class="botao-listagem" href="tela_listar_clientes">Listagem de clientes</a>
-       <a class="botao"href="tela_inserir_cliente">Adicionar clientes</a></th>
-       <a class="botao-atualizar"href="tela_atualizar_clientes_dois">Atualizar clientes</a>
 
-     <a class="botao-listagem" href="tela_listar_moedas">Listagem de Moedas</a>
-      <a class="botao" href="tela_inserir_moeda">Adicionar Moedas</a></th>
-      <a  class="botao-atualizar"href="tela_atualizar_moedas_dois">Atualizar Moedas</a>
-  
-    
+      <a class="hoverEffect botao-listagem" href="tela_listar_clientes">Listagem de clientes</a>
+      <a class="hoverEffect botao" href="tela_inserir_cliente">Adicionar clientes</a></th>
+      <a class="hoverEffect botao-atualizar" href="tela_atualizar_clientes_dois">Atualizar clientes</a>
+
+      <a class="hoverEffect botao-listagem" href="tela_listar_moedas">Listagem de Moedas</a>
+      <a class="hoverEffect botao" href="tela_inserir_moeda">Adicionar Moedas</a></th>
+      <a class="hoverEffect botao-atualizar" href="tela_atualizar_moedas_dois">Atualizar Moedas</a>
+
+
     </div>
- 
-  <!-- </table> -->
+
+    <div class="recursos">
+      <a class="sobre hoverEffect" href="tela_sobre">Sobre</a>
+      <a class="extrair-dados hoverEffect" href="tela_extrair_dados">Extrair dados</a>
+    </div>
+  </section>
+
+
   
 </body>
+
 </html>

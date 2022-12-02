@@ -39,18 +39,25 @@
           <a class="botao-deletar" href="/deletar_cliente?id={{cliente[0]}}">Deletar</a>
         </td>
         <td>
-          <a  class="botao-atualizar" href="/tela_atualizar_clientes?id={{cliente[0]}}">Atualizar</a>
+          <a class="botao-atualizar" href="/tela_atualizar_clientes?id={{cliente[0]}}">Atualizar</a>
         </td>
       </tr>
       {%endfor%}
-
     </table>
-    
-
   </div>
-  <div class="flex">
-  <input type="button" class="flex-container-voltar" value="Voltar" onclick="window.location.href='tela_menu'"> 
-</div>
-</body>
 
+
+
+
+  
+  <div class="flex">
+    <button class="flex-container-voltar" onclick="window.location.href='tela_menu'">
+      Voltar
+    </button>
+  </div>
+
+
+
+
+</body>
 </html>

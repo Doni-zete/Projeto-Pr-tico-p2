@@ -43,7 +43,7 @@ def menu_aplicacao():
 @app.route('/tela_listar_clientes', methods=['GET','POST'])
 def listar_cliente():
     cursor = meuBanco.cursor()    
-    sql = "SELECT *  FROM `trabalhoP2_db`.`tabela_cliente`"
+    sql = "SELECT *  FROM trabalhoP2_db.tabela_cliente"
     cursor.execute(sql)
     results = cursor.fetchall()
     print(results)
@@ -52,7 +52,7 @@ def listar_cliente():
 @app.route('/tela_atualizar_clientes_dois', methods=['GET','POST'])
 def atualizar_clientes_dois():
     cursor = meuBanco.cursor()    
-    sql = "SELECT *  FROM `trabalhoP2_db`.`tabela_cliente`"
+    sql = "SELECT *  FROM trabalhoP2_db.tabela_cliente"
     cursor.execute(sql)
     results = cursor.fetchall()
     print(results)
@@ -207,7 +207,36 @@ def atualizar_moedas():
     cursor.execute(sql)
     results = cursor.fetchall()
     print(results)
-    return render_template("tela_atualizar_moedas_dois.html", content=results)    
+    return render_template("tela_atualizar_moedas_dois.html", content=results)   
+
+@app.route('/tela_sobre')
+def sobre():
+  return render_template("tela_sobre.html")
+
+@app.route('/tela_extrair_dados')
+def extrair_dados():
+    cursor = meuBanco.cursor()    
+    sql = " SELECT * FROM trabalhoP2_db.tabela_cliente"
+    # sqlm = "SELECT *  FROM trabalhoP2_db.tabela_moeda"
+
+    cursor.execute(sql)
+    # cursor.execute(sqlm)
+    clientes = cursor.fetchall()
+    print(clientes)
+
+
+    cursor = meuBanco.cursor()    
+    sql = " SELECT * FROM trabalhoP2_db.tabela_moeda"
+    # sqlm = "SELECT *  FROM trabalhoP2_db.tabela_moeda"
+
+    cursor.execute(sql)
+    # cursor.execute(sqlm)
+    moedas = cursor.fetchall()
+    print(moedas)
+
+    
+    return render_template("tela_extrair_dados.html", content=(clientes, moedas))
+
 
 
 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" />
+  <title>Extração de dados</title>
+</head>
+<body>
+  <h1>Extrair dados</h1>
+  
+
+  <div class="center-table">
+    <table>
+      <th>Id</th>
+      <th>Avatar</th>
+      <th>Nome</th>
+      <th>Senha</th>
+      <th>Email</th>
+      <th>Apagar</th>
+      <th>Atualizar dados</th>
+      {%for cliente in content[0]%}
+      <tr>
+        <td>
+          {{ cliente[0] }}
+        </td>
+        <td>
+          <div class="avatar"><img height="48" width="48" src="https://img.myloview.com/murals/digital-dollar-icon-vector-currency-symbol-with-male-user-person-profile-avatar-for-digital-currency-in-a-glyph-pictogram-illustration-400-231705418.jpg" /></div>
+        </td>
+        <td>
+          {{ cliente[1] }}
+        </td>
+        <td>
+          {{ cliente[2] }}
+        </td>
+        <td>
+          {{ cliente[3] }}
+        </td>
+        <td>
+          <a class="botao-deletar" href="/deletar_cliente?id={{cliente[0]}}">Deletar</a>
+        </td>
+        <td>
+          <a class="botao-atualizar" href="/tela_atualizar_clientes?id={{cliente[0]}}">Atualizar</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+  </div>
+
+
+
+
+  
+  <div class="flex">
+    <button class="flex-container-voltar" onclick="window.location.href='tela_menu'">
+      Voltar
+    </button>
+  </div>
+
+
+
+  <div class="center-table">
+    <table>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Simbolo</th>
+      <th>Valor</th>
+      <th>Quantidade</th>
+      <th>Deletar</th>
+      <th>Atualizar dados</th>
+      {%for moeda in content[1]%}
+      <tr>
+        <td>
+          {{ moeda[0] }}
+        </td>
+        <td>
+          {{ moeda[1] }}
+        </td>
+        <td>
+          {{ moeda[2] }}
+        </td>
+        <td>
+          {{ moeda[3] }}
+        </td>
+        <td>
+          {{ moeda[4] }}
+        </td>
+        <td>
+          <a class="botao-deletar" href="/deletar_moeda?id={{moeda[0]}}">Deletar</a>
+        </td>
+        <td>
+          <a  class="botao-atualizar" href="/tela_atualizar_moedas?id={{moeda[0]}}">Atualizar</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+  </div>
+
+  <div class="flex">
+  <input type="button" class="flex-container-voltar" value="Voltar" onclick="window.location.href='tela_menu'"> 
+</div>
+
+
+
+</body>
+</html>
