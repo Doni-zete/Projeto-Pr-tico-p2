@@ -1,6 +1,5 @@
-from flask import Flask, Blueprint, request, session, make_response,render_template,jsonify,redirect
+from flask import Flask, request,render_template,redirect
 from CRUD.crud import  criarBases,cadastrarCliente ,verificaLogin,meuBanco
-# from flask_cors import CORS
 app = Flask(__name__)
 criarBases()
 
