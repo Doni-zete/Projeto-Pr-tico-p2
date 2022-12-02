@@ -18,7 +18,7 @@
 * pip3 install mysql.connector
 * from flask import Flask, request,render_template,redirect
 
-
+![Importação](https://github.com/Doni-zete/Projeto-Pratico-p2/blob/main/images/1.jpg)
 
 
 
