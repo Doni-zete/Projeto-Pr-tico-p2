@@ -9,7 +9,7 @@
 :hammer_and_wrench: **Tecnologias Utilizadas**
 * Python
 * Flask
-* SQL
+* MYSQL
 * XAMPP
 * DBeavear
 
