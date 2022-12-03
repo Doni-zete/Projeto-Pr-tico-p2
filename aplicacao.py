@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, redirect
 from CRUD.crud import criarBases, verificaLogin, meuBanco
-import pandas as pd
+# import pandas as pd
 import json
 
 app = Flask(__name__)
@@ -27,6 +27,7 @@ def cadastro():
             "INSERT INTO trabalhoP2_db.tabela_cliente(nome,email,senha) VALUES (%s, %s,%s)", (nome, email, senha))
         meuBanco.commit()
         cur.close()
+        # redireciona para a pagina inicial
         return redirect('/')
     return render_template('tela_cadatro.html')
 
@@ -83,7 +84,7 @@ def inserir_cliente():
             "INSERT INTO trabalhoP2_db.tabela_cliente(nome,email,senha) VALUES (%s, %s,%s)", (nome, email, senha))
         meuBanco.commit()
         cur.close()
-        return redirect('/tela_inserir_cliente')
+        # return redirect('/tela_inserir_cliente')
     return render_template('tela_inserir_cliente.html')
 
 
@@ -151,7 +152,7 @@ def inserir_moeda():
     return render_template('tela_inserir_moeda.html')
 
 
-@app.route("/deletar_moeda", methods=['GET', 'POST'])
+@app.route("/deletar_moeda")
 def deletar_moeda():
     cursor = meuBanco.cursor()
     sql = "DELETE FROM trabalhoP2_db.tabela_moeda WHERE id = %s"
@@ -238,17 +239,26 @@ def extrair_dados():
 def extrair_salvar(tabela_nome, nome_arquivo):
     print("iniciando scrapping...")
 
+    #abrindo conexao com a base de dados
     cursor = meuBanco.cursor()
+    
+    #preparando a query adicinando nome da tabela na string
     sql = " SELECT * FROM trabalhoP2_db.{}".format(tabela_nome)
 
+
+    #executando query na base d e dados
     cursor.execute(sql)
+    # ira armazenar nome das colunas das tabelas
     headers = []
 
+    #pega o nome das colunas das tabelas e salvar dentro da variaval 'headers'
     for item in cursor.description:
       headers.append(item[0])
 
+    # Recebe valores da base de dados
     dados = cursor.fetchall()
 
+    # formata os dados para adicionar em uma lista de objetos com nome da coluna e o valor
     dados_object = []
     for item in dados:
       obcj = {}
@@ -256,18 +266,22 @@ def extrair_salvar(tabela_nome, nome_arquivo):
         obcj[headers[index]] = ite
       dados_object.append(obcj)
 
+    #Converte os dados para json
     objeto_json = json.dumps(dados_object)
 
+    #Salvando o arquivo no diretorio static para que o servidor possa  deixar visiel  parao  download
     with open("static/temp/{}.json".format(nome_arquivo), "w") as arquivo_saida:
         arquivo_saida.write(objeto_json)
     # print(objeto_json)
 
     print("Finalizado!")
 
-
+#  quando clica no botão salvar e chamada no front 
 @app.route('/button_extrair', methods=["GET", "POST"])
 def raspando_dados():
+    # função chamada para salvar dados do cliente
     extrair_salvar("tabela_cliente", "clientes")
+    # função chamada para salvar dados da moeda
     extrair_salvar("tabela_moeda", "moedas")
 
     return redirect('/tela_extrair_dados')
