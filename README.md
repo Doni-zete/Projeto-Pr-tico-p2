@@ -22,5 +22,9 @@
 
 
 
+## :computer: Criando conexão com a base de dados
+
+![Conexão](https://github.com/Doni-zete/Projeto-Pratico-p2/blob/main/images/criar_conexao.jpg)
+
 
  
