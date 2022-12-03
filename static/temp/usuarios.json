@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nome": "Donizete",
+    "senha": "12345698",
+    "email": "doni@gmail.com"
+  },
+  {
+    "id": 2,
+    "nome": "Manoel",
+    "senha": "123456",
+    "email": "muel@gmail.com"
+  },
+  {
+    "id": 3,
+    "nome": "Larissa",
+    "senha": "95487",
+    "email": "larissa@gmail.com"
+  },
+  {
+    "id": 4,
+    "nome": "Donili",
+    "senha": "123456",
+    "email": "donili@gmail.com"
+  }
+]

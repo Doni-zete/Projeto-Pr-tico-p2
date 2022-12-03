@@ -50,6 +50,15 @@ def listar_cliente():
     print(results)
     return render_template("tela_listar_clientes.html", content=results)
 
+@app.route('/tela_listar_usuarios')
+def listar_usuairos():
+    cursor = meuBanco.cursor()
+    sql = "SELECT *  FROM trabalhoP2_db.tabela_usuario"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    print(results)
+    return render_template("tela_listar_clientes.html", content=results)
+
 
 @app.route('/tela_atualizar_clientes_dois')
 def atualizar_clientes_dois():
@@ -218,21 +227,28 @@ def extrair_dados():
     cursor = meuBanco.cursor()
     sql = " SELECT * FROM trabalhoP2_db.tabela_cliente"
     # sqlm = "SELECT *  FROM trabalhoP2_db.tabela_moeda"
-
     cursor.execute(sql)
     # cursor.execute(sqlm)
     clientes = cursor.fetchall()
 
+
     cursor = meuBanco.cursor()
     sql = " SELECT * FROM trabalhoP2_db.tabela_moeda"
     # sqlm = "SELECT *  FROM trabalhoP2_db.tabela_moeda"
-
     cursor.execute(sql)
     # cursor.execute(sqlm)
     moedas = cursor.fetchall()
     # print(moedas)
 
-    return render_template("tela_extrair_dados.html", content=(clientes, moedas))
+
+    cursor = meuBanco.cursor()
+    sql = " SELECT * FROM trabalhoP2_db.tabela_usuario"
+    # sqlm = "SELECT *  FROM trabalhoP2_db.tabela_moeda"
+    cursor.execute(sql)
+    # cursor.execute(sqlm)
+    usuarios = cursor.fetchall()
+
+    return render_template("tela_extrair_dados.html", content=(clientes, moedas,usuarios))
 
 
 def extrair_salvar(tabela_nome, nome_arquivo):
@@ -282,6 +298,8 @@ def raspando_dados():
     extrair_salvar("tabela_cliente", "clientes")
     # função chamada para salvar dados da moeda
     extrair_salvar("tabela_moeda", "moedas")
+
+    extrair_salvar("tabela_usuario", "usuarios")
 
     return redirect('/tela_extrair_dados')
     # return render_template("button_extrair.html")

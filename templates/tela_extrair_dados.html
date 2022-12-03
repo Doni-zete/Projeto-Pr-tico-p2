@@ -59,14 +59,7 @@
 
 
   
-  <div class="flex">
-    <form method="post" action="button_extrair">
-      <input class="flex-container-salvar hoverEffect" type="submit" value="salvar" />
 
-     
-
-    </form>
-  </div>
 
 
 
@@ -108,11 +101,56 @@
       {%endfor%}
     </table>
   </div>
+
+
   <a class="btn btn-secondary" download href="http://127.0.0.1:5000/static/temp/moedas.json">Download moedas</a>
 
-  <div class="flex">
-  <input type="button" class="flex-container-voltar" value="Voltar" onclick="window.location.href='tela_menu'"> 
+  
+
+
+<div class="caixaPrincipal"> 
+  <h1 class="texto1">Extrair usuarios</h1> 
+  <div class="center-table"> 
+    <table class="table table-dark table-striped"> 
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Senha</th>
+    <th>Email</th>
+    <th>Deletar</th>
+    <th>Atualizar dados</th>
+    {%for usuario in content[2]%}
+    <tr>
+      <td>
+        {{ usuario[0] }}
+      </td>
+      <td>
+        {{ usuario[1] }}
+      </td>
+      <td>
+        {{ usuario[2] }}
+      </td>
+      <td>
+        {{ usuario[3] }}
+      </td>
+    
+      <td>
+        <a class="btn btn-secondary" href="/deletar_moeda?id={{usuario[0]}}">Deletar</a>
+      </td>
+      <td>
+        <a  class="btn btn-secondary" href="/tela_atualizar_moedas?id={{usuario[0]}}">Atualizar</a>
+      </td>
+    </tr>
+    {%endfor%}
+  </table>
+  
 </div>
+  <div class="flex">
+    <form method="post" action="button_extrair">
+      <input class="flex-container-salvar hoverEffect" type="submit" value="salvar" />
+    </form>
+  </div>
+
+  <a class="btn btn-secondary" download href="http://127.0.0.1:5000/static/temp/usuarios.json">Download usuarios</a>
 
 <style> 
   * { 
