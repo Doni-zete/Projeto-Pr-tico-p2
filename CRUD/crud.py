@@ -41,7 +41,7 @@ def tabela_moeda():
 def tabela_usuario():
   try:
     mycursor.execute(
-      "CREATE TABLE `trabalhoP2_db`.`tabela_usuario` (`id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `email` VARCHAR(60) NOT NULL , `senha` VARCHAR(60) NOT NULL , PRIMARY KEY (`id`))"
+      "CREATE TABLE `trabalhoP2_db`.`tabela_usuario` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `senha` VARCHAR(60) NOT NULL,  `email` VARCHAR(60) NOT NULL,PRIMARY KEY (`id`)) "
       )
     print('Tabela criada com sucesso!')
   except:
@@ -53,19 +53,19 @@ def terminaConexao():
 # ========================Criar tabelas de manipulação=============================
 
 
-try:
-  def cadastrarCliente(valores):
+# try:
+#   def cadastrarCliente(valores):
 
-    sql = "INSERT INTO `trabalhoP2_db`.`tbl_cliente` (`nome`, `email`, `senha`) VALUES(%s, %s, %s)"
-    vlr = (valores['nome'], valores['email'], valores['senha'])
-    print("clienteNovo: {}".format(vlr))
+#     sql = "INSERT INTO `trabalhoP2_db`.`tbl_cliente` (`nome`, `email`, `senha`) VALUES(%s, %s, %s)"
+#     vlr = (valores['nome'], valores['email'], valores['senha'])
+#     print("clienteNovo: {}".format(vlr))
 
-    mycursor.execute(sql, vlr)
-    terminaConexao()
+#     mycursor.execute(sql, vlr)
+#     terminaConexao()
 
-    print("Dados criados com sucesso")
-except:
-  print('Dados não inseridos')
+#     print("Dados criados com sucesso")
+# except:
+#   print('Dados não inseridos')
 
 
 

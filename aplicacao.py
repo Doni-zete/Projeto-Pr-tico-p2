@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect
-from CRUD.crud import criarBases, cadastrarCliente, verificaLogin, meuBanco
+from CRUD.crud import criarBases, verificaLogin, meuBanco
 import pandas as pd
 import json
 
@@ -134,7 +134,7 @@ def listar_moedas():
     return render_template("tela_listar_moedas.html", content=results)
 
 
-@app.route("/tela_inserir_moeda")
+@app.route("/tela_inserir_moeda", methods=["GET", "POST"])
 def inserir_moeda():
     if request.method == "POST":
         informacao = request.form
@@ -148,7 +148,6 @@ def inserir_moeda():
                     (moeda, simbolo, valor, quantidade))
         meuBanco.commit()
         cur.close()
-        return redirect('/tela_inserir_moeda')
     return render_template('tela_inserir_moeda.html')
 
 
@@ -259,20 +258,20 @@ def extrair_salvar(tabela_nome, nome_arquivo):
 
     objeto_json = json.dumps(dados_object)
 
-    with open("static/temp/{}.json".format(nome_arquivo), "w") as outfile:
-        outfile.write(objeto_json)
+    with open("static/temp/{}.json".format(nome_arquivo), "w") as arquivo_saida:
+        arquivo_saida.write(objeto_json)
     # print(objeto_json)
 
     print("Finalizado!")
 
 
 @app.route('/button_extrair', methods=["GET", "POST"])
-def scraping_data():
+def raspando_dados():
     extrair_salvar("tabela_cliente", "clientes")
     extrair_salvar("tabela_moeda", "moedas")
 
-#   return redirect ()
-    return render_template("button_extrair.html")
+    return redirect('/tela_extrair_dados')
+    # return render_template("button_extrair.html")
 
 
 app.run(debug=True)

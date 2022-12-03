@@ -139,7 +139,7 @@ h3 {
 }
 
 .sobre {
-    background-color: #06c22f;
+    background-color: #0699c2;
     border-radius: 6px;
     color: white;
     font-size: 24px;
@@ -169,6 +169,36 @@ h3 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.botao-download {
+    background: #06d993;
+    border-radius: 6px;
+    padding: 15px 32px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    margin: 34px 2px;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+
+.sair{
+    background-color: #cd2807;
+    border-radius: 6px;
+    color: white;
+    font-size: 24px;
+    height: 46px;
+    width: 134px;
+    padding: 10px;
+    text-align: center;
+    margin: 5px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
 
 .center-table {
     display: flex;
