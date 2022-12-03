@@ -1,60 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+  <title>Listagem Moedas</title> 
+ 
+</head> 
+ 
+<body> 
+  <div class="caixaPrincipal"> 
+    <h1 class="texto1">Listagem de Moedas</h1> 
+    <div class="center-table"> 
+      <table class="table table-dark table-striped"> 
+        <th>Id</th> 
+        <th>Nome</th> 
+        <th>Simbolo</th> 
+        <th>Valor</th> 
+        <th>Quantidade</th> 
+        <th>Deletar</th> 
+        <th>Atualizar dados</th> 
+        {%for moeda in content%} 
+        <tr> 
+          <td> 
+            {{ moeda[0] }} 
+          </td> 
+          <td> 
+            {{ moeda[1] }} 
+          </td> 
+          <td> 
+            {{ moeda[2] }} 
+          </td> 
+          <td> 
+            {{ moeda[3] }} 
+          </td> 
+          <td> 
+            {{ moeda[4] }} 
+          </td> 
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <title>Listagem Moedas</title>
-</head>
+          <td> 
+            <a class="btn btn-secondary" href="/deletar_moeda?id={{moeda[0]}}">Deletar</a> 
+          </td> 
 
-<body>
+          <td> 
+            <a class="btn btn-secondary" href="/tela_atualizar_moedas?id={{moeda[0]}}">Atualizar</a> 
+          </td> 
 
-  <h1>Listagem de Moedas</h1>
-
-  <div class="center-table">
-    <table>
-      <th>Id</th>
-      <th>Nome</th>
-      <th>Simbolo</th>
-      <th>Valor</th>
-      <th>Quantidade</th>
-      <th>Deletar</th>
-      <th>Atualizar dados</th>
-      {%for moeda in content%}
-      <tr>
-        <td>
-          {{ moeda[0] }}
-        </td>
-        <td>
-          {{ moeda[1] }}
-        </td>
-        <td>
-          {{ moeda[2] }}
-        </td>
-        <td>
-          {{ moeda[3] }}
-        </td>
-        <td>
-          {{ moeda[4] }}
-        </td>
-        <td>
-          <a class="botao-deletar" href="/deletar_moeda?id={{moeda[0]}}">Deletar</a>
-        </td>
-        <td>
-          <a  class="botao-atualizar" href="/tela_atualizar_moedas?id={{moeda[0]}}">Atualizar</a>
-        </td>
-      </tr>
-      {%endfor%}
-    </table>
-  </div>
-
-  <div class="flex">
-  <input type="button" class="flex-container-voltar" value="Voltar" onclick="window.location.href='tela_menu'"> 
-</div>
-
-
-</body>
-
+        </tr> 
+        {%endfor%} 
+      </table> 
+    </div> 
+ 
+    <div class="flex"> 
+      <input type="button" class="flex-container-voltar" value="Voltar" onclick="window.location.href='tela_menu'"> 
+    </div> 
+ 
+  </div> 
+</body> 
+<style> 
+  * { 
+    margin: 0px; 
+    padding: 0px; 
+    box-sizing: border-box; 
+  } 
+ 
+  body { 
+    background-color: #0b0e11; 
+  } 
+ 
+  button { 
+    width: 200px; 
+    align-self: center; 
+  } 
+ 
+  .caixaPrincipal { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-around; 
+    padding: 55px; 
+    border-radius: 1%; 
+  } 
+ 
+  .texto1 { 
+    color: #ffd632; 
+  } 
+ 
+  .texto2 { 
+    color: #c3c3c3; 
+  } 
+ 
+  .buttonGroup { 
+    display: flex; 
+    align-items: column; 
+    justify-content: space-around; 
+  } 
+</style> 
+ 
 </html>

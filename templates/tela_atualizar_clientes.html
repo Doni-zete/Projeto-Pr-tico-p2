@@ -6,17 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <title>Document</title>
 </head>
 
 <body>
-  <h1>Atualizar cliente</h1>
+  <h1 class="texto1">Atualizar cliente</h1>
 
 
   {% for cliente in content %}
 
-  <section class="container-login-criar wrap">
+  <section class="container-login-criar wrap" style="color: #ffd632">
     <div class="item">Id:{{ cliente[0] }}</div>
     <div class="item">Nome:{{ cliente[1] }}</div>
     <div class="item">Senha:{{ cliente[2] }}</div>
@@ -26,13 +28,13 @@
 
   <div class="center-table">
     <form action=" " method="post">
-      <input type="text" name="nome" placeholder="Digite seu nome" />
-      <input type="text" name="senha" placeholder="Digite sua senha..." />
-      <input type="text" name="email" placeholder="Digite seu Email..." />
+      <input  class="form-control"type="text" name="nome" placeholder="Digite seu nome" />
+      <input class="form-control"type="text" name="senha" placeholder="Digite sua senha..." />
+      <input class="form-control" type="text" name="email" placeholder="Digite seu Email..." />
       <br>
-      <input type="submit" class="botao-atualizar" name="acao" value="Atualizar" />
+      <input type="submit" class="btn btn-warning" name="acao" value="Atualizar" />
 
-      <input type="button" class="botao-deletar" value="Voltar" onclick="window.location.href='tela_listar_clientes'">
+      <input type="button" class="btn btn-secondary" value="Voltar" onclick="window.location.href='tela_listar_clientes'">
 
 
 
@@ -46,5 +48,45 @@
 
   <script src="{{ url_for('static', filename = 'scripts.js') }}"></script>
 </body>
+
+<style> 
+  * { 
+    margin: 0px; 
+    padding: 0px; 
+    box-sizing: border-box; 
+  } 
+ 
+  body { 
+    background-color: #0b0e11; 
+  } 
+ 
+  button { 
+    width: 200px; 
+    align-self: center; 
+  } 
+ 
+  .caixaPrincipal { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-around; 
+    padding: 55px; 
+    border-radius: 1%; 
+  } 
+ 
+  .texto1 { 
+    color: #ffd632; 
+  } 
+ 
+  .texto2 { 
+    color: #c3c3c3; 
+  } 
+ 
+  .buttonGroup { 
+    display: flex; 
+    align-items: column; 
+    justify-content: space-around; 
+  } 
+</style> 
 
 </html>

@@ -4,30 +4,71 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <title>Sobre</title>
 </head>
 <body>
-  <h1>Sobre</h1>
+ 
 
-  <div class="sobre-dev">
-<p>A Aplicação desenvolvida tem como objetivo armazenar informações de compra e venda de criptoativos.</p>
-<p>Moedas que foi comprada, o valor pago e a quantidade comprada,conta tambem com a opção de cadastrar clientes.</p>
-
-
-<p class="dev">Desenvolvedores:</p>
-<p>Donizete Crisostomo RA:2840482013049 </p>
-<p>Bruno William de Souza Camargo RA:2840482013012 </p>
-<p>Camila Batista Veiga RA: 2840482011024 </p>
-
-
-
-
-<button type="button" class="botao-deletar" onclick="window.location.href='tela_menu'" >Voltar</button>
-
-
+  <div class="caixaPrincipal">
+    <h1 class="texto2">Sobre</h1>
+    <p id="textSobre">A Aplicação desenvolvida tem como objetivo armazenar informações de compra e venda de criptoativos.</p>
+    <p id="textSobre">Moedas que foi comprada, o valor pago e a quantidade comprada,conta tambem com a opção de cadastrar clientes.</p>
+    <p class="textSobre2">Desenvolvedores:</p>
+    <p id="textSobre">Donizete Crisostomo RA:2840482013049 </p>
+    <p id="textSobre">Camila Batista Veiga RA:2840482011024 </p>
+    <p id="textSobre">Bruno William Camargo RA:2840482013012 </p>
+    <button type="button" class="btn btn-warning" onclick="window.location.href='tela_menu'" >Voltar</button>
 
   </div>
 
 </body>
+<style>
+  * {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.caixaPrincipal{
+  background-color: #f5ee8a43;
+  width: 50%;
+  height: 60%;
+  margin-left: 25%;
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 55px;
+  border-radius: 1%;
+}
+
+body{
+  background-color: #0b0e11;
+}
+.texto1{
+  color: #ffd632;
+}
+.texto2{
+  color: #c3c3c3;
+}
+
+.btn-warning{
+  width: 100px;
+}
+
+#textSobre {
+  font-size: 20px;
+  color: #0b0e11;
+  text-align: justify;
+}
+
+.textSobre2{
+  font-size: 20px;
+  color: #0b0e11;
+  text-align: justify;
+  font-weight: 700;
+}
+</style>
 </html>

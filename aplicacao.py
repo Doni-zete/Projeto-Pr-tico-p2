@@ -8,13 +8,12 @@ criarBases()
 
 # app.secret_key ="123hudsadasdw"
 
-
 @app.route("/")
 def Inicio():
     return render_template('tela_incial.html')
 
 
-@app.route('/tela_cadatro', methods=['GET', 'POST'])
+@app.route('/tela_cadatro_usuario', methods=['GET', 'POST'])
 def cadastro():
     if request.method == "POST":
         informacao = request.form
@@ -24,12 +23,12 @@ def cadastro():
 
         cur = meuBanco.cursor()
         cur.execute(
-            "INSERT INTO trabalhoP2_db.tabela_cliente(nome,email,senha) VALUES (%s, %s,%s)", (nome, email, senha))
+            "INSERT INTO trabalhoP2_db.tabela_usuario(nome,email,senha) VALUES (%s, %s,%s)", (nome, email, senha))
         meuBanco.commit()
         cur.close()
         # redireciona para a pagina inicial
         return redirect('/')
-    return render_template('tela_cadatro.html')
+    return render_template('tela_cadatro_usuario.html')
 
 
 @app.route("/tela_login")
