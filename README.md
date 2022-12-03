@@ -21,6 +21,9 @@
 
 ![Conexão](https://github.com/Doni-zete/Projeto-Pratico-p2/blob/main/images/criar_conexao.jpg)
 
+* Criando tabelas dentro do banco de dados trabalhoP2_db
+![Criando tabelas dentro do banco de dados trabalhoP2_db](https://github.com/Doni-zete/Projeto-Pratico-p2/blob/main/images/criando%20tabelas%20dentro%20do%20databse%20trabalhoP.db.jpg)
+
 :arrow_down: **Importação metodos e criando arquivo .py**
 * Criar um arquivo chamado aplicacao.py
 * importart para dentro do aplicacao.py 'from flask import Flask, request,render_template,redirect'
