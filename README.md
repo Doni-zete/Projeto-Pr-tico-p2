@@ -13,18 +13,20 @@
 * XAMPP
 * DBeavear
 
-:arrow_down: **Instalação de dependências e importação**
+:arrow_down: **Instalação de dependências**
 * pip3 install flask
 * pip3 install mysql.connector
-* from flask import Flask, request,render_template,redirect
-
-![Importação](https://github.com/Doni-zete/Projeto-Pratico-p2/blob/main/images/1.jpg)
-
-
 
 ## :computer: Criando conexão com a base de dados
 
 ![Conexão](https://github.com/Doni-zete/Projeto-Pratico-p2/blob/main/images/criar_conexao.jpg)
+
+:arrow_down: **Importação metodos e criando arquivo .py**
+* Criar um arquivo chamado aplicacao.py
+* importart para dentro do aplicacao.py 'from flask import Flask, request,render_template,redirect'
+
+![Importação](https://github.com/Doni-zete/Projeto-Pratico-p2/blob/main/images/1.jpg)
+
 
 
  
