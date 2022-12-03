@@ -23,6 +23,17 @@ body>* {
     border: none
 }
 
+
+.flex-container-salvar {
+    background: #06c22f;;
+    margin: 7px 453px;
+    border-radius: 13px;
+    line-height: 75px;
+    font-size: 30px;
+    color: #fff;
+    border: none
+}
+
 .flex-container-voltar:hover {
     cursor: pointer;
 }
@@ -142,6 +153,7 @@ h3 {
 
 
 .hoverEffect:hover {
+    cursor: pointer;
     filter: contrast(130%);
 }
 

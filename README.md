@@ -7,7 +7,7 @@
  Moedas que foi comprada, o valor pago e a quantidade comprada,conta tambem com a opção de cadastrar clientes.
 
 :hammer_and_wrench: **Tecnologias Utilizadas**
-* Python
+* Python 3.11.0
 * Flask
 * SQL
 * XAMPP

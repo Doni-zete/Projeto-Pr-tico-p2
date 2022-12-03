@@ -1,0 +1,16 @@
+[
+  {
+    "id": 2,
+    "moeda": "Ethereum",
+    "simbolo": "ETH",
+    "valor": "1500",
+    "quantidade": "3"
+  },
+  {
+    "id": 3,
+    "moeda": "Nano",
+    "simbolo": "XNO",
+    "valor": "3.00",
+    "quantidade": "1000"
+  }
+]

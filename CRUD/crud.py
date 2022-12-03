@@ -1,5 +1,4 @@
 from conectar.conexaoBase import conectaDB
-
 meuBanco = conectaDB()
 mycursor = meuBanco.cursor()
 
@@ -42,7 +41,7 @@ def tabela_moeda():
 def tabela_usuario():
   try:
     mycursor.execute(
-      "CREATE TABLE `trabalhoP2_db`.`tabela_usuario` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `email` VARCHAR(60) NOT NULL , `senha` VARCHAR(60) NOT NULL , PRIMARY KEY (`id`))"
+      "CREATE TABLE `trabalhoP2_db`.`tabela_usuario` (`id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(60) NOT NULL , `email` VARCHAR(60) NOT NULL , `senha` VARCHAR(60) NOT NULL , PRIMARY KEY (`id`))"
       )
     print('Tabela criada com sucesso!')
   except:
@@ -83,24 +82,8 @@ except:
 
 
 
-try:
-  def listarClientes():
-    
-    sql = "SELECT * from `trabalhoP2_db`.`tbl_cliente` where 1=1"
-    # print(sql)
-    mycursor.execute(sql)
-    resu = mycursor.fetchall()
-    terminaConexao()
-    resuThat = []
-    field_names = [i[0] for i in mycursor.description]
-    for l in resu:
-      temp = {}
-      for index, j in enumerate(l):
-        temp[field_names[index]] = j
-      resuThat.append(temp)
-    
-    print(resuThat)
 
-    return resuThat
-except:
-  print('Dados não inseridos')  
+  
+
+
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,10 @@
   <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet" />
   <title>Extração de dados</title>
 </head>
+
 <body>
   <h1>Extrair dados</h1>
-  
+
 
   <div class="center-table">
     <table>
@@ -26,7 +28,9 @@
           {{ cliente[0] }}
         </td>
         <td>
-          <div class="avatar"><img height="48" width="48" src="https://img.myloview.com/murals/digital-dollar-icon-vector-currency-symbol-with-male-user-person-profile-avatar-for-digital-currency-in-a-glyph-pictogram-illustration-400-231705418.jpg" /></div>
+          <div class="avatar"><img height="48" width="48"
+              src="https://img.myloview.com/murals/digital-dollar-icon-vector-currency-symbol-with-male-user-person-profile-avatar-for-digital-currency-in-a-glyph-pictogram-illustration-400-231705418.jpg" />
+          </div>
         </td>
         <td>
           {{ cliente[1] }}
@@ -51,11 +55,16 @@
 
 
 
-  
+
   <div class="flex">
-    <button class="flex-container-voltar" onclick="window.location.href='tela_menu'">
-      Voltar
-    </button>
+    <form method="post" action="button_extrair">
+      <input class="flex-container-salvar hoverEffect" type="submit" value="salvar" />
+    </form>
+
+    <a class="flex-container-salvar hoverEffect" download href="http://127.0.0.1:5000/static/temp/clientes.json">Download</a>
+    <!-- <button class="flex-container-salvar hoverEffect" onclick="window.location.href='tela_menu'">
+      Salvar
+    </button> -->
   </div>
 
 
@@ -90,7 +99,7 @@
           <a class="botao-deletar" href="/deletar_moeda?id={{moeda[0]}}">Deletar</a>
         </td>
         <td>
-          <a  class="botao-atualizar" href="/tela_atualizar_moedas?id={{moeda[0]}}">Atualizar</a>
+          <a class="botao-atualizar" href="/tela_atualizar_moedas?id={{moeda[0]}}">Atualizar</a>
         </td>
       </tr>
       {%endfor%}
@@ -98,10 +107,9 @@
   </div>
 
   <div class="flex">
-  <input type="button" class="flex-container-voltar" value="Voltar" onclick="window.location.href='tela_menu'"> 
-</div>
-
-
+    <input type="button" class="flex-container-voltar" value="Voltar" onclick="window.location.href='tela_menu'">
+  </div>
 
 </body>
+
 </html>
