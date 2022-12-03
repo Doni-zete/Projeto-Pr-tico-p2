@@ -10,6 +10,15 @@
   <title>Extração de dados</title>
 </head>
 <body>
+
+
+  <div class="caixaSecundaria">
+    <a href="/tela_menu">
+      <button class="btn btn-warning" type="button">Sair</button>
+    </a>
+
+    </button>
+  </div>
   
   
   <div class="caixaPrincipal"> 
@@ -134,11 +143,13 @@
       </td>
     
       <td>
-        <a class="btn btn-secondary" href="/deletar_moeda?id={{usuario[0]}}">Deletar</a>
+        <a class="btn btn-secondary" href="/deletar_usuario?id={{usuario[0]}}">Deletar</a>
       </td>
+
       <td>
-        <a  class="btn btn-secondary" href="/tela_atualizar_moedas?id={{usuario[0]}}">Atualizar</a>
+        <a  class="btn btn-secondary" href="/tela_atualizar_usuarios?id={{usuario[0]}}">Atualizar</a>
       </td>
+
     </tr>
     {%endfor%}
   </table>
@@ -146,7 +157,7 @@
 </div>
   <div class="flex">
     <form method="post" action="button_extrair">
-      <input class="flex-container-salvar hoverEffect" type="submit" value="salvar" />
+      <input class="flex-container-salvar hoverEffect" type="submit" value="Salvar" />
     </form>
   </div>
 

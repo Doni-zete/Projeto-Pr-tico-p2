@@ -133,6 +133,48 @@ def atualizar_cliente():
         return render_template("tela_atualizar_clientes.html", content=results)
 
 
+
+
+@app.route("/tela_atualizar_usuarios", methods=['GET', 'POST'])
+def atualizar_usuario():
+    if request.method == "POST":
+        informacao = request.form
+        id = informacao['id']
+        nome = informacao['nome']
+        senha = informacao['senha']
+        email = informacao['email']
+
+        cursor = meuBanco.cursor()
+        sql = "UPDATE  trabalhoP2_db.tabela_usuario SET nome = %s,senha = %s, email = %s  WHERE id = %s"
+        cursor.execute(sql, (nome, senha, email,  id))
+        meuBanco.commit()
+
+        cursor = meuBanco.cursor()
+        sql = "SELECT * FROM trabalhoP2_db.tabela_usuario WHERE id = %s "
+        cursor.execute(sql, (request.args.get('id'),))
+
+        # cursor.execute(sql)
+        # meuBanco.commit()
+        results = cursor.fetchall()
+        print(results)
+        print("CONECTADO!")
+        return render_template("tela_atualizar_usuarios.html", content=results)
+
+    else:
+        cursor = meuBanco.cursor()
+        sql = "SELECT * FROM trabalhoP2_db.tabela_usuario WHERE id = %s"
+        # cursor.execute(sql)
+        cursor.execute(sql, (request.args.get('id'),))
+
+        results = cursor.fetchall()
+        print(results)
+        print("CONECTADO!")
+        return render_template("tela_atualizar_usuarios.html", content=results)
+
+
+
+
+
 @app.route('/tela_listar_moedas')
 def listar_moedas():
     cursor = meuBanco.cursor()
@@ -167,6 +209,14 @@ def deletar_moeda():
     cursor.execute(sql, (request.args.get('id'),))
     meuBanco.commit()
     return redirect('/tela_listar_moedas')
+
+@app.route("/deletar_usuario")
+def deletar_usuario():
+    cursor = meuBanco.cursor()
+    sql = "DELETE FROM trabalhoP2_db.tabela_usuario WHERE id = %s"
+    cursor.execute(sql, (request.args.get('id'),))
+    meuBanco.commit()
+    return redirect('/tela_extrair_dados')    
 
 
 @app.route("/tela_atualizar_moedas", methods=['GET', 'POST'])

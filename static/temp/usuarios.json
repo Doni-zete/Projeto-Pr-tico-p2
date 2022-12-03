@@ -1,26 +1,20 @@
 [
   {
-    "id": 1,
-    "nome": "Donizete",
-    "senha": "12345698",
-    "email": "doni@gmail.com"
-  },
-  {
-    "id": 2,
-    "nome": "Manoel",
-    "senha": "123456",
-    "email": "muel@gmail.com"
-  },
-  {
-    "id": 3,
-    "nome": "Larissa",
-    "senha": "95487",
-    "email": "larissa@gmail.com"
-  },
-  {
     "id": 4,
-    "nome": "Donili",
-    "senha": "123456",
-    "email": "donili@gmail.com"
+    "nome": "Mario Dolari",
+    "senha": "98546",
+    "email": "marinho@gmail.com"
+  },
+  {
+    "id": 5,
+    "nome": "Manuela",
+    "senha": "98987",
+    "email": "Manu@gmail.com"
+  },
+  {
+    "id": 6,
+    "nome": "Laurindo",
+    "senha": "50587",
+    "email": "laua@gmail.com"
   }
 ]
